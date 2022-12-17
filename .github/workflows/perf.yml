@@ -16,6 +16,13 @@ jobs:
           username: ${{ secrets.GH_USER }}
           password: ${{ secrets.GH_TOKEN }}
           
+      - name: Checkout foundation-base
+        uses: actions/checkout@v3
+        with:
+          repository: zcaudate/foundation-base
+          path: foundation-base
+          token: ${{ secrets.GH_TOKEN }}
+          
       - name: Checkout foundation-embed
         uses: actions/checkout@v3
         with:
@@ -30,4 +37,4 @@ jobs:
           -v $HOME/.ssh:/root/.ssh
           -v $(pwd):$(pwd) -w $(pwd)
           ghcr.io/zcaudate/foundation-ci:main 
-          bash -c "cd foundation-embed && lein perf-bench-main"
+          bash -c "cd foundation-embed && make setup-checkouts && lein perf-bench-main"
