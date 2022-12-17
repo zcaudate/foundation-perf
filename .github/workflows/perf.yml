@@ -6,6 +6,12 @@ jobs:
   
   perf-tests:
     runs-on: ubuntu-latest
+        
+    services:
+      redis:
+        image: ghcr.io/zcaudate/infra-redis:main
+        ports:
+          - 6379:6379
       
     steps:
       - name: Log into registry ${{ env.REGISTRY }}
