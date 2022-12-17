@@ -4,7 +4,7 @@ on: [repository_dispatch, workflow_dispatch]
 
 jobs:
   
-  perf-tests:
+  inst:
     runs-on: ubuntu-latest
     
     strategy:
