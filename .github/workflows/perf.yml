@@ -6,6 +6,13 @@ jobs:
   
   perf-tests:
     runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - command: perf-single-thread
+          - command: perf-single-cleanup
         
     services:
       redis:
@@ -43,4 +50,4 @@ jobs:
           -v $HOME/.ssh:/root/.ssh
           -v $(pwd):$(pwd) -w $(pwd)
           ghcr.io/zcaudate/foundation-ci:main 
-          bash -c "cd foundation-embed && make setup-checkouts && lein perf-single-thread"
+          bash -c "cd foundation-embed && make setup-checkouts && ${{ matrix.command }}"
