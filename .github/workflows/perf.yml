@@ -11,6 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - command: perf-single-add
           - command: perf-single-thread
           - command: perf-single-cleanup
         
