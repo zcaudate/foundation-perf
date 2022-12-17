@@ -14,6 +14,8 @@ jobs:
           - command: perf-single-add
           - command: perf-single-thread
           - command: perf-single-cleanup
+          - command: perf-dual-cleanup
+          - command: perf-ten-cleanup
         
     services:
       redis:
