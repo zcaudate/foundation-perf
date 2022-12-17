@@ -43,4 +43,4 @@ jobs:
           -v $HOME/.ssh:/root/.ssh
           -v $(pwd):$(pwd) -w $(pwd)
           ghcr.io/zcaudate/foundation-ci:main 
-          bash -c "cd foundation-embed && make setup-checkouts && lein perf-bench"
+          bash -c "cd foundation-embed && make setup-checkouts && lein perf-single-thread"
