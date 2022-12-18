@@ -19,8 +19,10 @@ jobs:
             total: 1000000
           - command: perf-dual-cleanup
             total: 1000000
-          - command: perf-ten-cleanup
+          - command: perf-multi-cleanup
             total: 300000
+          - command: perf-ten-cleanup
+            total: 200000
         
     services:
       redis:
