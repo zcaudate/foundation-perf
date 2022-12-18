@@ -15,9 +15,7 @@ jobs:
           - command: perf-single-thread
           - command: perf-single-cleanup
           - command: perf-dual-cleanup
-          - command: perf-dual-cdf
           - command: perf-ten-cleanup
-          - command: perf-ten-cdf
         
     services:
       redis:
