@@ -57,5 +57,7 @@ jobs:
           -v /var/run/docker.sock:/var/run/docker.sock
           -v $HOME/.ssh:/root/.ssh
           -v $(pwd):$(pwd) -w $(pwd)
+          -e BENCH_BATCH=10000
+          -e BENCH_TOTAL=1000000
           ghcr.io/zcaudate/foundation-ci:main 
           bash -c "cd foundation-embed && make setup-checkouts && lein ${{ matrix.command }}"
