@@ -2,6 +2,11 @@ name: Performance Test
 
 on: [repository_dispatch, workflow_dispatch]
 
+env:
+  BENCH_BATCH: 10000
+  BENCH_TOTAL: 1000000
+  BENCH_PORT: 6379
+
 jobs:
   
   inst:
