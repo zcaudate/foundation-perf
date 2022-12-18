@@ -12,10 +12,15 @@ jobs:
       matrix:
         include:
           - command: perf-single-add
+            total: 1000000
           - command: perf-single-thread
+            total: 1000000
           - command: perf-single-cleanup
+            total: 1000000
           - command: perf-dual-cleanup
+            total: 1000000
           - command: perf-ten-cleanup
+            total: 300000
         
     services:
       redis:
@@ -53,6 +58,6 @@ jobs:
           -v $HOME/.ssh:/root/.ssh
           -v $(pwd):$(pwd) -w $(pwd)
           -e BENCH_BATCH=10000
-          -e BENCH_TOTAL=1000000
+          -e BENCH_TOTAL=${{ matrix.total }}
           ghcr.io/zcaudate/foundation-ci:main 
           bash -c "cd foundation-embed && make setup-checkouts && lein ${{ matrix.command }}"
